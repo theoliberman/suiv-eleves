@@ -1,6 +1,13 @@
 <script setup lang="ts">
 import type { NavigationMenuItem } from "@nuxt/ui";
 
+const { user, clear } = useUserSession();
+
+async function logout() {
+  await clear();
+  await navigateTo("/login");
+}
+
 const links = [
   [
     {
@@ -57,7 +64,7 @@ const groups = computed(() => [
       </template>
 
       <template #footer="{ collapsed }">
-        <UserMenu :collapsed="collapsed" />
+        <UserMenu :collapsed="collapsed" :name="user?.name" :logout="logout" />
       </template>
     </UDashboardSidebar>
 
