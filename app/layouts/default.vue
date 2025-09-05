@@ -8,21 +8,32 @@ async function logout() {
   await navigateTo("/login");
 }
 
-const links = [
-  [
-    {
-      label: "Accueil",
-      icon: "i-lucide-house",
-      to: "/",
-    },
-  ],
-] satisfies NavigationMenuItem[][];
+const links = computed(() => {
+  return [
+    [
+      {
+        label: "Accueil",
+        icon: "i-lucide-house",
+        to: "/",
+      },
+    ],
+    user.value?.admin
+      ? [
+          {
+            label: "Enseignants",
+            icon: "i-lucide-users",
+            to: "/admin/teachers",
+          },
+        ]
+      : [],
+  ] satisfies NavigationMenuItem[][];
+});
 
 const groups = computed(() => [
   {
     id: "links",
     label: "Aller à",
-    items: links.flat(),
+    items: links.value.flat(),
   },
 ]);
 </script>

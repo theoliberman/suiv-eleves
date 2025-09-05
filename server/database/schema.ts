@@ -15,4 +15,5 @@ export const users = sqliteTable("users", (t) => ({
     SUBSTR(SUBSTR(${users.email}, 1, INSTR(${users.email}, '@') - 1), 3)
     , '0', ''),'1', ''),'2', ''),'3', ''),'4', ''),'5', ''),'6', ''),'7', ''),'8', ''),'9', '')`,
     ),
+  admin: t.integer({ mode: "boolean" }).notNull().default(false),
 }));

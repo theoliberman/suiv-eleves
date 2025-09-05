@@ -1,9 +1,9 @@
-export default defineNuxtRouteMiddleware(async (to, from) => {
+export default defineNuxtRouteMiddleware(async (route) => {
   const { loggedIn, fetch } = useUserSession();
 
   await fetch();
 
-  if (to.fullPath === "/login") return;
+  if (route.fullPath === "/login") return;
 
   if (!loggedIn.value) return navigateTo("/login");
 });
