@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
-  modules: ["@nuxt/ui", "@nuxthub/core", "nuxt-auth-utils"],
+  modules: ["@nuxt/ui", "@nuxthub/core", "nuxt-auth-utils", "nuxt-nodemailer"],
 
   css: ["~/assets/css/main.css"],
 
@@ -22,6 +22,19 @@ export default defineNuxtConfig({
   nitro: {
     experimental: {
       tasks: true,
+    },
+  },
+
+  runtimeConfig: {
+    JWT_SECRET: "",
+    nodemailer: {
+      from: '"SuivEleves" <noreply@suiv-eleves.app>',
+      host: "",
+      port: "",
+      auth: {
+        user: "",
+        pass: "",
+      },
     },
   },
 });
