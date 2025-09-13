@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
-  modules: ["@nuxt/ui"],
+  modules: ["@nuxt/ui", "nuxt-auth-utils", "@nuxthub/core"],
 
   css: ["~/assets/css/main.css"],
 
@@ -12,6 +12,16 @@ export default defineNuxtConfig({
         primary: "emerald",
         neutral: "neutral",
       },
+    },
+  },
+
+  hub: {
+    database: true,
+  },
+
+  nitro: {
+    experimental: {
+      tasks: true,
     },
   },
 });

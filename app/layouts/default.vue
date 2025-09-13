@@ -54,7 +54,9 @@ const links = computed<NavigationMenuItem[][]>(() => {
         />
       </template>
 
-      <template #footer="{ collapsed }"> </template>
+      <template #footer="{ collapsed }">
+        <UserMenu :collapsed="collapsed" />
+      </template>
     </UDashboardSidebar>
 
     <UDashboardSearch
