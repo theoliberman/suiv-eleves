@@ -78,7 +78,7 @@ function onSubmit(payload: FormSubmitEvent<Schema>) {
       <ULink
         class="text-primary font-medium"
         tabindex="-1"
-        to="/auth/reset-password"
+        to="/auth/request-reset-password"
       >
         Mot de passe oublié ?
       </ULink>
