@@ -17,3 +17,12 @@ export const users = sqliteTable("users", (t) => ({
     , '0', ''),'1', ''),'2', ''),'3', ''),'4', ''),'5', ''),'6', ''),'7', ''),'8', ''),'9', '')`,
     ),
 }));
+
+export const tokens = sqliteTable("tokens", (t) => ({
+  hash: t.text().notNull(),
+  email: t
+    .text()
+    .notNull()
+    .unique()
+    .references(() => users.email, { onDelete: "cascade" }),
+}));

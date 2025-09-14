@@ -24,4 +24,16 @@ export default defineNuxtConfig({
       tasks: true,
     },
   },
+
+  runtimeConfig: {
+    JWT_SECRET: "",
+    mailer: {
+      host: "",
+      port: "",
+      auth: {
+        user: "",
+        pass: "",
+      },
+    },
+  },
 });
