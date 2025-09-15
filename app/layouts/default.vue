@@ -2,6 +2,15 @@
 import type { NavigationMenuItem } from "@nuxt/ui";
 
 const route = useRoute();
+const { user } = useUserSession();
+
+const adminLinks = [
+  {
+    label: "Enseignants",
+    icon: "i-lucide-users",
+    to: "/admin/teachers",
+  },
+] satisfies NavigationMenuItem[];
 
 const links = computed<NavigationMenuItem[][]>(() => {
   const res = [
@@ -13,6 +22,8 @@ const links = computed<NavigationMenuItem[][]>(() => {
       },
     ],
   ];
+
+  if (user.value?.admin) res[0]?.push(...adminLinks);
   return res;
 });
 </script>
